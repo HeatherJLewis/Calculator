@@ -1,6 +1,6 @@
 const readline = require('readline-sync');
 
-let answer;
+let answer = 0;
 
 console.log('Welcome to the calculator!');
 
@@ -8,23 +8,34 @@ console.log('Please enter an operator');
 
 const operator = readline.prompt();
 
-console.log(`You have chosen ${operator}`);
+console.log(`You have chosen ${operator} \nHow many numbers would you like?`);
 
-console.log('Please enter the first number:');
+const numberOfOperands = +readline.prompt();
 
-const input1 = parseInt(readline.prompt());
+const adder = number => {
+    for(let i = 1; i <= number; i++) {
+        console.log(`Please enter number ${i}`);
+        answer += (parseInt(readline.prompt()));
+    }
+    return answer;
+};
 
-console.log('Please enter the second number:');
-
-const input2 = parseInt(readline.prompt());
+const multiplier = number => {
+    answer = 1;
+    for(let i = 1; i <= number; i++) {
+        console.log(`Please enter number ${i}`);
+        answer *= (parseInt(readline.prompt()));
+    }
+    return answer;
+};
 
 switch (operator) {
     case "*":
-        answer = input1 * input2;
+        multiplier(numberOfOperands)
         break;
 
     case "+":
-        answer = input1 + input2;
+        adder(numberOfOperands)
         break;
 
     case "-":
