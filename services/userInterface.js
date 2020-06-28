@@ -12,7 +12,7 @@ const selectAnOperator = () => {
 const selectNumberOfOperands = () => {
     console.log(`You have chosen ${operator} \nHow many numbers would you like?`);
 
-   return numberOfOperands = +readline.prompt();
+    return numberOfOperands = +readline.prompt();
 };
 
 module.exports = {
