@@ -1,64 +1,31 @@
-const readline = require('readline-sync');
+const basicOperators = require('./services/basicOperators')
+const userInterface = require('./services/userInterface')
+const createArrayOfOperands = require('./services/createArrayOfOperands')
 
-let answer = 0;
-let operandsArray = [];
-
-const createOperandsArray = number => {
-    for (let i = 1; i < number+1; i++) {
-            console.log(`Please enter number ${i}`);
-            operandsArray.push(parseInt(readline.prompt()))
-    }
-    return operandsArray;
-}
+let arrayOfOperands = [];
+let chosenOperator = "";
 
 console.log('Welcome to the calculator!');
 
-console.log('Please enter an operator');
+chosenOperator = userInterface.selectAnOperator();
 
-const operator = readline.prompt();
+arrayOfOperands = createArrayOfOperands.createArrayOfOperands(userInterface.selectNumberOfOperands(), arrayOfOperands);
 
-console.log(`You have chosen ${operator} \nHow many numbers would you like?`);
-
-const numberOfOperands = +readline.prompt();
-
-operandsArray = createOperandsArray(numberOfOperands);
-answer = operandsArray[0]
-
-const adder = () => {
-    operandsArray.slice(1).forEach(el => answer += el)
-    return answer;
-};
-
-const multiplier = () => {
-    operandsArray.slice(1).forEach(el => answer *= el)
-    return answer;
-};
-
-const subtractor = () => {
-    operandsArray.slice(1).forEach(el => answer -= el)
-    return answer;
-};
-
-const divider = () => {
-    operandsArray.slice(1).forEach(el => answer /= el)
-    return answer;
-};
-
-switch (operator) {
+switch (chosenOperator) {
     case "*":
-        multiplier()
+        answer = basicOperators.multiplyNumbers(arrayOfOperands)
         break;
 
     case "+":
-        adder()
+        answer = basicOperators.addNumbers(arrayOfOperands)
         break;
 
     case "-":
-        subtractor()
+        answer = basicOperators.subtractNumbers(arrayOfOperands)
         break;
 
     case "/":
-        divider()
+        answer = basicOperators.divideNumbers(arrayOfOperands)
         break;
 
     default:
