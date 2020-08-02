@@ -15,7 +15,14 @@ const selectNumberOfOperands = () => {
     return numberOfOperands = +readline.prompt();
 };
 
+const selectMode = () => {
+    console.log('Which calculator mode would you like?\n 1) Arithmetic \n 2) Vowel Counting');
+
+    return readline.prompt();
+}
+
 module.exports = {
+    selectMode,
     selectAnOperator,
     selectNumberOfOperands
 };
