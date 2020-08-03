@@ -1,26 +1,28 @@
 let result = 0
 
 const addNumbers = (array) => {
-    result = array[0]
-    array.slice(1).forEach(el => result += el)
+    const reducer = (acc, curr) => acc + curr;
+    result = array.reduce(reducer)
     return result;
 };
 
 const multiplyNumbers = (array) => {
-    result = array[0]
-    array.slice(1).forEach(el => result *= el)
+    const reducer = (acc, curr) => acc * curr;
+    result = array.reduce(reducer)
     return result;
 };
 
 const divideNumbers = (array) => {
-    result = array[0]
-    array.slice(1).forEach(el => result /= el)
+    const reducer = (acc, curr) => {
+        return curr != 0 ? acc / curr : acc;
+    }
+    result = array.reduce(reducer)
     return result;
 };
 
 const subtractNumbers = (array) => {
-    result = array[0]
-    array.slice(1).forEach(el => result -= el)
+    const reducer = (acc, curr) => acc - curr;
+    result = array.reduce(reducer)
     return result;
 };
 
