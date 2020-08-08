@@ -1,12 +1,12 @@
 const {
     selectAnOperator,
     selectNumberOfOperands
-} = require('./services/userInterface')
-const { createArrayOfOperands } = require('./services/createArrayOfOperands');
+} = require('../userInterface/userInterface')
+const { createArrayOfOperands } = require('./createArrayOfOperands');
 const { addNumbers,
     multiplyNumbers,
     divideNumbers,
-    subtractNumbers } = require('./services/basicOperators')
+    subtractNumbers } = require('./basicOperators')
 
 let chosenOperator = "";
 

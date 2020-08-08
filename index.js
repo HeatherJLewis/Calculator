@@ -1,7 +1,7 @@
 const readline = require('readline-sync');
-const { selectMode } = require('./services/userInterface')
-const { performOneCalculation } = require('./calculator');
-const { vowelCounter } = require('./vowelCounter');
+const { selectMode } = require('./src/userInterface/userInterface')
+const { performOneCalculation } = require('./src/calculator/calculator');
+const { vowelCounter } = require('./src/vowelCounter');
 
 let again = "";
 let mode = "";
