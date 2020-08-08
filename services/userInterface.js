@@ -1,18 +1,29 @@
 const readline = require('readline-sync');
 
-let operator = "";
+let userOperator = "";
 let numberOfOperands = 0;
 
 const selectAnOperator = () => {
+    let operatorArray = ['+', '-', '*', '/']
     console.log('Please enter an operator');
 
-    return operator = readline.prompt();
-};
+    userOperator = readline.prompt();
+
+    if(operatorArray.some(operator => operator == userOperator)){
+        return userOperator;
+    } else {
+        throw new Error('This is not a basic operator')
+    };
+}
 
 const selectNumberOfOperands = () => {
-    console.log(`You have chosen ${operator} \nHow many numbers would you like?`);
+    try {
+        console.log(`You have chosen ${userOperator} \nHow many numbers would you like?`);
 
-    return numberOfOperands = +readline.prompt();
+        return numberOfOperands = +readline.prompt();
+    } catch (error) {
+        console.error(error);
+    }
 };
 
 const selectMode = () => {
