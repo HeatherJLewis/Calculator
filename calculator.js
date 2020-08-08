@@ -13,33 +13,33 @@ let chosenOperator = "";
 const performOneCalculation = () => {
     let answer;
     let arrayOfOperands = [];
-    try {
-        chosenOperator = selectAnOperator();
 
-        arrayOfOperands = createArrayOfOperands(selectNumberOfOperands(), arrayOfOperands);
+    chosenOperator = selectAnOperator();
 
-        switch (chosenOperator) {
-            case "*":
-                answer = multiplyNumbers(arrayOfOperands);
-                break;
+    arrayOfOperands = createArrayOfOperands(selectNumberOfOperands(), arrayOfOperands);
 
-            case "+":
-                answer = addNumbers(arrayOfOperands);
-                break;
+    switch (chosenOperator) {
+        case "*":
+            answer = multiplyNumbers(arrayOfOperands);
+            break;
 
-            case "-":
-                answer = subtractNumbers(arrayOfOperands);
-                break;
+        case "+":
+            answer = addNumbers(arrayOfOperands);
+            break;
 
-            case "/":
-                answer = divideNumbers(arrayOfOperands);
-                break;
-        }
-    } catch (error) {
-        console.error(error);
+        case "-":
+            answer = subtractNumbers(arrayOfOperands);
+            break;
+
+        case "/":
+            answer = divideNumbers(arrayOfOperands);
+            break;
+        default:
+            console.log('That is not a function');
+            break;
     }
 
-    console.log((answer === undefined) ? 'Try again please' : `The answer is: ${answer}`);
+    console.log((!answer) ? 'Try again please' : `The answer is: ${answer}`);
 
 };
 

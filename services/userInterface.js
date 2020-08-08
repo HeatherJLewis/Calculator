@@ -6,14 +6,15 @@ let numberOfOperands = 0;
 const selectAnOperator = () => {
     let operatorArray = ['+', '-', '*', '/']
     console.log('Please enter an operator');
-
     userOperator = readline.prompt();
 
-    if(operatorArray.some(operator => operator == userOperator)){
-        return userOperator;
-    } else {
-        throw new Error('This is not a basic operator')
-    };
+    while(!operatorArray.some(operator => operator == userOperator)){
+        console.log('That is not a basic operator.\nPlease enter another operator');
+        userOperator = readline.prompt();
+    }
+
+    return userOperator;
+
 }
 
 const selectNumberOfOperands = () => {
